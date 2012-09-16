@@ -5,3 +5,4 @@
 /dist/
 .tox/
 MANIFEST
+doc/build/

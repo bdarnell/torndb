@@ -38,6 +38,8 @@ except ImportError:
     # which has limitations on third-party modules)
     MySQLdb = None
 
+version = "0.1"
+version_info = (0, 1, 0, 0)
 
 class Connection(object):
     """A lightweight wrapper around MySQLdb DB-API connections.
