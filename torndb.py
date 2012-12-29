@@ -26,6 +26,7 @@ from __future__ import absolute_import, division, with_statement
 import copy
 import itertools
 import logging
+import os
 import time
 
 try:
@@ -34,9 +35,12 @@ try:
     import MySQLdb.cursors
 except ImportError:
     # If MySQLdb isn't available this module won't actually be useable,
-    # but we want it to at least be importable (mainly for readthedocs.org,
-    # which has limitations on third-party modules)
-    MySQLdb = None
+    # but we want it to at least be importable on readthedocs.org,
+    # which has limitations on third-party modules.
+    if 'READTHEDOCS' in os.environ:
+        MySQLdb = None
+    else:
+        raise
 
 version = "0.1"
 version_info = (0, 1, 0, 0)
