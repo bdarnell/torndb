@@ -66,7 +66,7 @@ class Connection(object):
                  time_zone="+0:00"):
         self.host = host
         self.database = database
-        self.max_idle_time = max_idle_time
+        self.max_idle_time = float(max_idle_time)
 
         args = dict(conv=CONVERSIONS, use_unicode=True, charset="utf8",
                     db=database, init_command=('SET time_zone = "%s"' % time_zone),
