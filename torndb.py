@@ -51,7 +51,7 @@ class Connection(object):
     The main value we provide is wrapping rows in a dict/object so that
     columns can be accessed by name. Typical usage::
 
-        db = database.Connection("localhost", "mydatabase")
+        db = torndb.Connection("localhost", "mydatabase")
         for article in db.query("SELECT * FROM articles"):
             print article.title
 
