@@ -42,8 +42,8 @@ except ImportError:
     else:
         raise
 
-version = "0.1"
-version_info = (0, 1, 0, 0)
+version = "0.2"
+version_info = (0, 2, 0, 0)
 
 class Connection(object):
     """A lightweight wrapper around MySQLdb DB-API connections.
