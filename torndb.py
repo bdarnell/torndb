@@ -58,17 +58,17 @@ class Connection(object):
     Cursors are hidden by the implementation, but other than that, the methods
     are very similar to the DB-API.
 
-    We explicitly set the timezone to UTC and the character encoding to
-    UTF-8 on all connections to avoid time zone and encoding errors.
+    We explicitly set the timezone to UTC and assume the character encoding to
+    UTF-8 (can be changed) on all connections to avoid time zone and encoding errors.
     """
     def __init__(self, host, database, user=None, password=None,
                  max_idle_time=7 * 3600, connect_timeout=0,
-                 time_zone="+0:00"):
+                 time_zone="+0:00", charset = "utf8"):
         self.host = host
         self.database = database
         self.max_idle_time = float(max_idle_time)
 
-        args = dict(conv=CONVERSIONS, use_unicode=True, charset="utf8",
+        args = dict(conv=CONVERSIONS, use_unicode=True, charset=charset,
                     db=database, init_command=('SET time_zone = "%s"' % time_zone),
                     connect_timeout=connect_timeout, sql_mode="TRADITIONAL")
         if user is not None:
