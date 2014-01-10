@@ -136,7 +136,11 @@ class Connection(object):
             cursor.close()
 
     def get(self, query, *parameters, **kwparameters):
-        """Returns the first row returned for the given query."""
+        """Returns the (singular) row returned by the given query.
+
+        If the query has no results, returns None.  If it has
+        more than one result, raises an exception.
+        """
         rows = self.query(query, *parameters, **kwparameters)
         if not rows:
             return None
