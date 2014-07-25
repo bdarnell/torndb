@@ -7,6 +7,11 @@ Torndb Documentation
 Release history
 ===============
 
+Version 0.3, Jul 25 2014
+------------------------
+
+* Added ``charset`` and ``sql_mode`` arguments to `Connection` constructor.
+
 Version 0.2, Dec 22 2013
 ------------------------
 
