@@ -24,7 +24,6 @@ as torndb.
 from __future__ import absolute_import, division, with_statement
 
 import copy
-import itertools
 import logging
 import os
 import time
@@ -139,7 +138,7 @@ class Connection(object):
         try:
             self._execute(cursor, query, parameters, kwparameters)
             column_names = [d[0] for d in cursor.description]
-            return [Row(itertools.izip(column_names, row)) for row in cursor]
+            return [Row(zip(column_names, row)) for row in cursor]
         finally:
             cursor.close()
 
