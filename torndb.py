@@ -211,7 +211,7 @@ class Connection(object):
         finally:
             cursor.close()
 
-    update = execute_rowcount
+    update = delete = execute_rowcount
     updatemany = executemany_rowcount
 
     insert = execute_lastrowid
