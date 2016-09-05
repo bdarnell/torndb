@@ -33,13 +33,16 @@ try:
     import MySQLdb.converters
     import MySQLdb.cursors
 except ImportError:
-    # If MySQLdb isn't available this module won't actually be useable,
-    # but we want it to at least be importable on readthedocs.org,
-    # which has limitations on third-party modules.
-    if 'READTHEDOCS' in os.environ:
-        MySQLdb = None
-    else:
-        raise
+    try:
+        import pymysql as MySQLdb
+    except ImportError:
+        # If MySQLdb isn't available this module won't actually be useable,
+        # but we want it to at least be importable on readthedocs.org,
+        # which has limitations on third-party modules.
+        if 'READTHEDOCS' in os.environ:
+            MySQLdb = None
+        else:
+            raise
 
 version = "0.3"
 version_info = (0, 3, 0, 0)
