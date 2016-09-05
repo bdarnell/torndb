@@ -22,7 +22,7 @@ Limitations
 -----------
 
 Torndb does not support Python 3, or any database drivers other than
-`MySQLdb`.
+`MySQLdb` or `pymysql`.
 
 Installation
 ------------
